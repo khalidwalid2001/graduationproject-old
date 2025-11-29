@@ -2,8 +2,7 @@ name: Deploy React App to GitHub Pages
 
 on:
   push:
-    branches:
-      - main
+    branches: ["main"]
   workflow_dispatch:
 
 permissions:
@@ -11,29 +10,41 @@ permissions:
   pages: write
   id-token: write
 
-jobs:
-  build-deploy:
-    runs-on: ubuntu-latest
+concurrency:
+  group: "pages"
+  cancel-in-progress: true
 
+jobs:
+  build:
+    runs-on: ubuntu-latest
     steps:
       - name: Checkout
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
 
       - name: Setup Node
-        uses: actions/setup-node@v3
+        uses: actions/setup-node@v4
         with:
-          node-version: 18
+          node-version: 20
+          cache: "npm"
 
       - name: Install dependencies
         run: npm install
 
-      - name: Build React App
+      - name: Build React app
         run: npm run build
 
-      - name: Upload artifact
-        uses: actions/upload-pages-artifact@v1
+      - name: Upload build folder
+        uses: actions/upload-pages-artifact@v3
         with:
-          path: ./build
+          path: "./build"
 
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
       - name: Deploy to GitHub Pages
-        uses: actions/deploy-pages@v1
+        id: deployment
+        uses: actions/deploy-pages@v4
