@@ -1,0 +1,79 @@
+.app-footer {
+  margin-top: 16px;
+  border-top: 1px solid #e5e7eb;
+  background: radial-gradient(circle at top, #e5f3ff 0, #f9fafb 45%, #f3f4f6 100%);
+}
+
+.app-footer__inner {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 12px 18px 14px;
+  display: grid;
+  grid-template-columns: minmax(0, 1.4fr) minmax(0, 1.8fr) minmax(0, 0.8fr);
+  gap: 12px 18px;
+  font-size: 12px;
+  color: #4b5563;
+}
+
+/* أعمدة عامة */
+.app-footer__col {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+/* العمود الأول */
+.app-footer__project {
+  font-weight: 700;
+  color: #111827;
+  font-size: 13px;
+}
+
+.app-footer__subtitle {
+  color: #6b7280;
+}
+
+/* العمود الثاني */
+.app-footer__line {
+  display: flex;
+  gap: 4px;
+  align-items: flex-start;
+}
+
+.app-footer__label {
+  font-weight: 600;
+  color: #374151;
+}
+
+/* العمود الثالث (يمين) */
+.app-footer__col--right {
+  align-items: flex-end;
+  text-align: left;
+}
+
+.app-footer__year {
+  font-weight: 600;
+  color: #111827;
+}
+
+.app-footer__tech {
+  margin-top: 2px;
+  color: #6b7280;
+}
+
+.app-footer__tech span {
+  font-weight: 600;
+  color: #2563eb;
+}
+
+/* Responsiveness */
+@media (max-width: 768px) {
+  .app-footer__inner {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 10px;
+  }
+
+  .app-footer__col--right {
+    align-items: flex-start;
+  }
+}

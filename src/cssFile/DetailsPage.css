@@ -1,0 +1,201 @@
+/* نوع العميل (أفراد / أعمال) */
+.client-type {
+  margin-top: 20px;
+}
+
+.client-type__options {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 8px;
+}
+
+.chip-radio {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 12px;
+  border-radius: 999px;
+  border: 1px solid var(--border-subtle);
+  background-color: #f9fafb;
+  cursor: pointer;
+  font-size: 14px;
+  transition: background-color 0.15s ease, border-color 0.15s ease,
+    box-shadow 0.15s ease;
+}
+
+.chip-radio input {
+  accent-color: var(--primary);
+}
+
+.chip-radio:hover {
+  background-color: #eef2ff;
+  border-color: var(--primary-soft);
+}
+
+.chip-radio input:checked + span,
+.chip-radio input:checked ~ span {
+  font-weight: 600;
+}
+
+/* هيدر الاستبيان (نوع العميل + progress bar) */
+.questionnaire-header {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  margin-top: 20px;
+  margin-bottom: 10px;
+}
+
+@media (min-width: 768px) {
+  .questionnaire-header {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: flex-end;
+  }
+}
+
+/* ملخص التقدم */
+.questionnaire-progress {
+  min-width: 220px;
+}
+
+.questionnaire-progress__label {
+  display: block;
+  font-size: 13px;
+  color: var(--text-muted);
+  margin-bottom: 4px;
+}
+
+.questionnaire-progress__bar {
+  width: 100%;
+  height: 8px;
+  border-radius: 999px;
+  background-color: #e5e7eb;
+  overflow: hidden;
+}
+
+.questionnaire-progress__fill {
+  height: 100%;
+  background: linear-gradient(90deg, #2563eb, #22c55e);
+  transition: width 0.25s ease-out;
+}
+
+.questionnaire-progress__text {
+  display: block;
+  margin-top: 4px;
+  font-size: 12px;
+  color: var(--text-muted);
+}
+
+/* حاوية الاستبيان */
+.questionnaire {
+  margin-top: 18px;
+}
+
+.questionnaire__sections {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+/* كل Section أسئلة */
+.questionnaire-section {
+  border-radius: 12px;
+  border: 1px solid #e5e7eb;
+  background: #f9fafb;
+  padding: 14px 14px 10px;
+}
+
+.questionnaire-section__header {
+  margin-bottom: 8px;
+}
+
+.questionnaire-section__title {
+  margin: 0;
+  font-size: 15px;
+  font-weight: 700;
+}
+
+.questionnaire-section__description {
+  margin: 4px 0 0;
+  font-size: 13px;
+  color: var(--text-muted);
+}
+
+.questionnaire-section__body {
+  margin-top: 8px;
+}
+
+/* سطر السؤال */
+.question-row {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  padding: 8px 0;
+  border-bottom: 1px dashed #d1d5db;
+}
+
+.question-row:last-child {
+  border-bottom: none;
+}
+
+.question-row--unanswered {
+  border-right: 3px solid #f97316;
+  padding-right: 10px;
+}
+
+/* نص السؤال */
+.question-text {
+  display: flex;
+  align-items: flex-start;
+  gap: 6px;
+  font-size: 14px;
+}
+
+.question-number {
+  color: var(--text-muted);
+  min-width: 20px;
+}
+
+/* خيارات نعم/لا/غير قابل للتطبيق */
+.question-answers {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  font-size: 14px;
+}
+
+.question-answers label {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  cursor: pointer;
+}
+
+.question-answers input[type="radio"] {
+  accent-color: var(--primary);
+}
+
+/* كارت بيانات العميل الأساسي (نفس اللي استخدمته في البحث) */
+.selected-card {
+  margin-top: 10px;
+  background: #f1f5ff;
+  padding: 16px;
+  border-radius: 10px;
+  border: 1px solid #cddafd;
+}
+
+.selected-card h3 {
+  margin-top: 0;
+  color: #1d4ed8;
+  margin-bottom: 12px;
+  font-size: 15px;
+}
+
+.detail-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  gap: 10px;
+  font-size: 14px;
+}

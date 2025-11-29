@@ -1,0 +1,263 @@
+ /* **************
+   Theme & Global
+   ************** */
+
+:root {
+  --bg-body: #f3f4f6;
+  --bg-card: #ffffff;
+  --border-subtle: #e5e7eb;
+  --text-main: #111827;
+  --text-muted: #6b7280;
+  --primary: #2563eb;
+  --primary-hover: #1d4ed8;
+  --primary-soft: #dbeafe;
+  --radius-lg: 12px;
+  --radius-md: 8px;
+  --shadow-soft: 0 12px 30px rgba(15, 23, 42, 0.08);
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+    "Noto Sans Arabic", sans-serif;
+  background-color: var(--bg-body);
+  color: var(--text-main);
+  direction: rtl;
+}
+
+/* **************
+   App Shell
+   ************** */
+
+.app-shell {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.app-main {
+  flex: 1;
+  padding: 20px 16px;
+}
+
+/* **************
+   Generic Layout Helpers
+   ************** */
+
+.page {
+  padding: 0;
+}
+
+.page--centered {
+  min-height: calc(100vh - 120px); /* تقريباً بدون الهيدر والفوتر */
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+}
+
+@media (min-width: 768px) {
+  .page--centered {
+    align-items: center;
+  }
+}
+
+/* **************
+   Card
+   ************** */
+
+.card {
+  width: 100%;
+  max-width: 1000px;
+  background-color: var(--bg-card);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-soft);
+  padding: 20px 20px 16px;
+}
+
+.card--wide {
+  max-width: 1100px;
+}
+
+.card__header {
+  margin-bottom: 18px;
+}
+
+.card__footer {
+  margin-top: 18px;
+  display: flex;
+  justify-content: flex-end;
+  gap: 8px;
+}
+
+.card__footer--space-between {
+  justify-content: space-between;
+}
+
+/* **************
+   Typography
+   ************** */
+
+.page-title {
+  margin: 0 0 4px;
+  font-size: 20px;
+  font-weight: 700;
+}
+
+.page-subtitle {
+  margin: 0;
+  font-size: 13px;
+  color: var(--text-muted);
+}
+
+/* **************
+   Form Controls
+   ************** */
+
+.form-field {
+  display: flex;
+  flex-direction: column;
+}
+
+.form-label {
+  font-size: 13px;
+  color: var(--text-muted);
+  margin-bottom: 4px;
+}
+
+.text-input {
+  width: 100%;
+  padding: 8px 10px;
+  border-radius: var(--radius-md);
+  border: 1px solid var(--border-subtle);
+  font-size: 14px;
+  outline: none;
+  background-color: #f9fafb;
+  transition: border-color 0.16s ease, box-shadow 0.16s ease,
+    background-color 0.16s ease;
+}
+
+.text-input:focus {
+  border-color: var(--primary);
+  background-color: #ffffff;
+  box-shadow: 0 0 0 1px var(--primary-soft);
+}
+
+.text-input::placeholder {
+  color: #9ca3af;
+  font-size: 13px;
+}
+
+.text-input--readonly {
+  background-color: #f3f4f6;
+}
+
+.hint-text {
+  font-size: 11px;
+  color: #9ca3af;
+  margin-top: 2px;
+  display: block;
+}
+
+/* **************
+   Buttons
+   ************** */
+
+.btn {
+  border: none;
+  border-radius: 999px;
+  padding: 8px 18px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  transition: background-color 0.16s ease, transform 0.08s ease,
+    box-shadow 0.16s ease, opacity 0.16s ease;
+  background-color: #e5e7eb;
+  color: #111827;
+}
+
+.btn:hover {
+  background-color: #d1d5db;
+}
+
+.btn:active {
+  transform: translateY(0);
+  box-shadow: none;
+}
+
+.btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  box-shadow: none;
+}
+
+.btn-primary {
+  background-color: var(--primary);
+  color: #ffffff;
+  box-shadow: 0 6px 16px rgba(37, 99, 235, 0.35);
+}
+
+.btn-primary:hover {
+  background-color: var(--primary-hover);
+  transform: translateY(-1px);
+}
+
+.btn-primary:active {
+  transform: translateY(0);
+  box-shadow: 0 3px 10px rgba(37, 99, 235, 0.3);
+}
+
+.btn-primary:disabled {
+  opacity: 0.55;
+  cursor: not-allowed;
+  box-shadow: none;
+}
+
+/* **************
+   Generic Table (Loan page uses it)
+   ************** */
+
+.table-wrapper {
+  width: 100%;
+  overflow-x: auto;
+  border-radius: var(--radius-md);
+  border: 1px solid var(--border-subtle);
+  background-color: #ffffff;
+}
+
+.results-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 14px;
+}
+
+.results-table thead {
+  background-color: #f9fafb;
+}
+
+.results-table th,
+.results-table td {
+  padding: 8px 10px;
+  border-bottom: 1px solid #e5e7eb;
+  text-align: center;
+  white-space: nowrap;
+}
+
+.results-table th {
+  font-weight: 600;
+  color: #374151;
+  font-size: 13px;
+}
+
+.questions-empty {
+  color: var(--text-muted);
+  font-size: 14px;
+}
