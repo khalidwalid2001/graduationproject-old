@@ -1,6 +1,7 @@
 {
   "name": "graduationproject-old",
   "version": "0.1.0",
+  "homepage": "https://khalidwalid2001.github.io/graduationproject-old",
   "private": true,
   "dependencies": {
     "@testing-library/dom": "^10.4.1",
