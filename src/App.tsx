@@ -1,5 +1,5 @@
 // src/App.tsx
-import { BrowserRouter, Routes, Route, useLocation } from "react-router-dom";
+import { Routes, Route, useLocation } from "react-router-dom";
 import AppHeader from "./components/AppHeader";
 import AppFooter from "./components/AppFooter";
 import SearchPage from "./pages/SearchPage";
@@ -7,8 +7,8 @@ import DetailsPage from "./pages/DetailsPage";
 import LoanPage from "./pages/LoanPage";
 import "./App.css";
 
-// مكوّن داخلي عشان نقدر نستخدم useLocation داخل الـ Router
-function AppContent() {
+// مكوّن التطبيق الأساسي (جوا الـ Router اللي في index.tsx)
+export default function App() {
   const location = useLocation();
 
   return (
@@ -30,12 +30,3 @@ function AppContent() {
     </div>
   );
 }
-
-export default function App() {
-  return (
-    <BrowserRouter>
-      <AppContent />
-    </BrowserRouter>
-  );
-}
- 
